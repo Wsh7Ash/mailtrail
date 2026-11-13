@@ -1,0 +1,76 @@
+{
+  "target": "examples/phish.eml",
+  "subject": "Your account is limited",
+  "from_header": "PayPal Security <alerts@paypal-secure.example>",
+  "from_domain": "paypal-secure.example",
+  "reply_to_domain": "mail-verify.example",
+  "return_path_domain": "mail-verify.example",
+  "signals": [
+    {
+      "code": "spf-fail",
+      "severity": "high",
+      "score": 20,
+      "detail": "SPF returned fail"
+    },
+    {
+      "code": "dkim-fail",
+      "severity": "medium",
+      "score": 15,
+      "detail": "DKIM returned fail"
+    },
+    {
+      "code": "dmarc-fail",
+      "severity": "high",
+      "score": 40,
+      "detail": "DMARC returned fail"
+    },
+    {
+      "code": "reply-to-mismatch",
+      "severity": "medium",
+      "score": 15,
+      "detail": "Reply-To domain mail-verify.example differs from From domain paypal-secure.example"
+    },
+    {
+      "code": "return-path-mismatch",
+      "severity": "low",
+      "score": 10,
+      "detail": "Return-Path domain mail-verify.example differs from From domain paypal-secure.example"
+    },
+    {
+      "code": "lookalike-domain",
+      "severity": "high",
+      "score": 30,
+      "detail": "From domain paypal-secure.example contains the brand 'paypal' with extra text"
+    },
+    {
+      "code": "plaintext-link",
+      "severity": "medium",
+      "score": 10,
+      "detail": "link uses HTTP: http://192.0.2.10/login"
+    },
+    {
+      "code": "ip-literal-link",
+      "severity": "high",
+      "score": 20,
+      "detail": "link points at an IP address: 192.0.2.10"
+    },
+    {
+      "code": "anchor-mismatch",
+      "severity": "high",
+      "score": 20,
+      "detail": "link text host www.paypal.com does not match target 192.0.2.10"
+    }
+  ],
+  "score": 100,
+  "verdict": "likely-phishing",
+  "summary": {
+    "score": 100,
+    "verdict": "likely-phishing",
+    "counts": {
+      "high": 5,
+      "medium": 3,
+      "low": 1
+    },
+    "signals": 9
+  }
+}

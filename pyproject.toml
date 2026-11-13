@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mailtrail"
+version = "1.0.0"
+description = "Offline triage of reported phishing emails from their headers and links"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+keywords = ["email-security", "phishing", "triage", "soc"]
+dependencies = []
+
+[project.scripts]
+mailtrail = "mailtrail.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

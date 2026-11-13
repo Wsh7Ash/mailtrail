@@ -1,0 +1,12 @@
+Return-Path: <bounce@mail-verify.example>
+From: "PayPal Security" <alerts@paypal-secure.example>
+Reply-To: recovery@mail-verify.example
+Subject: Your account is limited
+Message-ID: <demo-1@mail-verify.example>
+Authentication-Results: mx.example; spf=fail; dkim=fail; dmarc=fail
+Content-Type: text/html; charset=utf-8
+
+<html><body>
+<p>We limited your account. Confirm now:</p>
+<p><a href="http://192.0.2.10/login">https://www.paypal.com/signin</a></p>
+</body></html>

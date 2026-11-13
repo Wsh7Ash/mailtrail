@@ -1,0 +1,18 @@
+mailtrail report - examples/phish.eml
+==========================================================
+Subject: Your account is limited
+From:    PayPal Security <alerts@paypal-secure.example>  (paypal-secure.example)
+Reply-To domain:    mail-verify.example
+Return-Path domain: mail-verify.example
+Signals: 9
+  [HIGH  ] +40  dmarc-fail             DMARC returned fail
+  [HIGH  ] +30  lookalike-domain       From domain paypal-secure.example contains the brand 'paypal' with extra text
+  [HIGH  ] +20  spf-fail               SPF returned fail
+  [HIGH  ] +20  ip-literal-link        link points at an IP address: 192.0.2.10
+  [HIGH  ] +20  anchor-mismatch        link text host www.paypal.com does not match target 192.0.2.10
+  [MEDIUM] +15  dkim-fail              DKIM returned fail
+  [MEDIUM] +15  reply-to-mismatch      Reply-To domain mail-verify.example differs from From domain paypal-secure.example
+  [LOW   ] +10  return-path-mismatch   Return-Path domain mail-verify.example differs from From domain paypal-secure.example
+  [MEDIUM] +10  plaintext-link         link uses HTTP: http://192.0.2.10/login
+----------------------------------------------------------
+score 100/100 -> likely-phishing
